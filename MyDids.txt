@@ -235,7 +235,7 @@
 1556 : RawCodec(6, "MixerTwoCircuitFixedValueFlowTemperatureSetpoint"),
 1557 : RawCodec(6, "MixerThreeCircuitFixedValueFlowTemperatureSetpoint"),
 1558 : RawCodec(6, "MixerFourCircuitFixedValueFlowTemperatureSetpoint"),
-1573 : None,
+1573 : O3EComplexType(9, "SystemReturnTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
 1593 : RawCodec(4, "BufferHysteresis"),
 1595 : RawCodec(8, "ParameterIdentificationVersionFactory"),
 1596 : O3EComplexType(9, "IncreasedReturnTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
