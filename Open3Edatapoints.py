@@ -676,7 +676,7 @@ dataIdentifiers = {
         1560 : RawCodec(6, "MixerSixCircuitFixedValueFlowTemperatureSetpoint"),
         1561 : RawCodec(6, "MixerSevenCircuitFixedValueFlowTemperatureSetpoint"),
         1562 : RawCodec(6, "MixerEightCircuitFixedValueFlowTemperatureSetpoint"),
-        1673 : O3EComplexType(9, "SystemReturnTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
+        1573 : O3EComplexType(9, "SystemReturnTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
         1577 : RawCodec(139, "ElectricalEnergyStorageModuleOneOperatingData"),
         1578 : RawCodec(139, "ElectricalEnergyStorageModuleTwoOperatingData"),
         1579 : RawCodec(139, "ElectricalEnergyStorageModuleThreeOperatingData"),
