@@ -2309,12 +2309,5 @@ E3Enums = {
         5: "De-icing",
         6: "Grid-lock",
     },
-
-    "FuelCellOperationModes" : {
-        0: "Off",
-        1: "Maintenance",
-        2: "Energy manager OFF",
-        3: "Ecological",
-        4: "Economical",
-    }, 
+    
 }
