@@ -1,0 +1,105 @@
+vval 360 DomesticHotWaterOutletSensor {"Actual": 32.1, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Error": 0}
+vval 271 DomesticHotWaterSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 281 BufferTopTemperatureSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 277 BufferBottomTemperatureSensor {"Actual": 18.7, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1435 FuelCellFlowTemperatureSensor {"Actual": 21.3, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1436 FuelCellReturnTemperatureSensor {"Actual": 20.7, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 318 WaterPressureSensor {"Actual": 1.4, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 331 FlueGasTemperatureSensor {"Actual": 45.6, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1043 AllengraSensor {"Flow": 167.0, "Temperature": 31.7, "Unknown": "00"}
+vval 268 FlowTemperatureSensor {"Actual": 49.9, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 283 HydraulicSeparatorReturnTemperatureSensor {"Actual": 31.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 284 MixerOneCircuitFlowTemperatureSensor {"Actual": 50.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 274 OutsideTemperatureSensor {"Actual": 10.2, "Average": 0.0, "Minimum": 0.0, "Maximum": 0.0, "Unknown": 0}
+vval 524 ModulationTargetSetpoint 0.0
+vval 526 ModulationCurrentValue 0.0
+vval 987 MixerOneCircuitFlowTemperatureTargetSetpoint 40.8
+vval 381 CentralHeatingPump 48.0
+vval 392 DomesticHotWaterPump "00000005"
+vval 401 MixerOneCircuitPump 0.0
+vval 1231 FuelCellPrimaryPump "00000000"
+vval 1263 DiverterValveBoilerHydraulicTower "6462"
+vval 1264 DiverterValveFuelCellHydraulicTower "0001"
+vval 1214 FuelCellElectricalPowerOutput 0.0
+vval 1367 FuelCellThermalPower 0.0
+vval 1190 ThermalPower 0.0
+vval 1363 FuelCellTargetOperationMode {"ID": 1, "Text": "Maintenance"}
+vval 360 DomesticHotWaterOutletSensor {"Actual": 32.1, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Error": 0}
+vval 271 DomesticHotWaterSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 281 BufferTopTemperatureSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 277 BufferBottomTemperatureSensor {"Actual": 18.8, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1435 FuelCellFlowTemperatureSensor {"Actual": 21.2, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1436 FuelCellReturnTemperatureSensor {"Actual": 20.6, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 318 WaterPressureSensor {"Actual": 1.4, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 331 FlueGasTemperatureSensor {"Actual": 39.8, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1043 AllengraSensor {"Flow": 169.0, "Temperature": 31.4, "Unknown": "00"}
+vval 268 FlowTemperatureSensor {"Actual": 40.8, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 283 HydraulicSeparatorReturnTemperatureSensor {"Actual": 30.7, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 284 MixerOneCircuitFlowTemperatureSensor {"Actual": 40.5, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 274 OutsideTemperatureSensor {"Actual": 10.2, "Average": 0.0, "Minimum": 0.0, "Maximum": 0.0, "Unknown": 0}
+vval 524 ModulationTargetSetpoint 0.0
+vval 526 ModulationCurrentValue 0.0
+vval 987 MixerOneCircuitFlowTemperatureTargetSetpoint 40.8
+vval 381 CentralHeatingPump 48.0
+vval 392 DomesticHotWaterPump "00000005"
+vval 401 MixerOneCircuitPump 0.0
+vval 1231 FuelCellPrimaryPump "00000000"
+vval 1263 DiverterValveBoilerHydraulicTower "6462"
+vval 1264 DiverterValveFuelCellHydraulicTower "0001"
+vval 1214 FuelCellElectricalPowerOutput 0.0
+vval 1367 FuelCellThermalPower 0.0
+vval 1190 ThermalPower 0.0
+vval 1363 FuelCellTargetOperationMode {"ID": 1, "Text": "Maintenance"}
+vval 360 DomesticHotWaterOutletSensor {"Actual": 32.1, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Error": 0}
+vval 271 DomesticHotWaterSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 281 BufferTopTemperatureSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 277 BufferBottomTemperatureSensor {"Actual": 18.8, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1435 FuelCellFlowTemperatureSensor {"Actual": 21.3, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1436 FuelCellReturnTemperatureSensor {"Actual": 20.7, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 318 WaterPressureSensor {"Actual": 1.4, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 331 FlueGasTemperatureSensor {"Actual": 37.1, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1043 AllengraSensor {"Flow": 169.0, "Temperature": 31.1, "Unknown": "00"}
+vval 268 FlowTemperatureSensor {"Actual": 33.7, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 283 HydraulicSeparatorReturnTemperatureSensor {"Actual": 30.5, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 284 MixerOneCircuitFlowTemperatureSensor {"Actual": 33.6, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 274 OutsideTemperatureSensor {"Actual": 10.2, "Average": 0.0, "Minimum": 0.0, "Maximum": 0.0, "Unknown": 0}
+vval 524 ModulationTargetSetpoint 0.0
+vval 526 ModulationCurrentValue 0.0
+vval 987 MixerOneCircuitFlowTemperatureTargetSetpoint 40.8
+vval 381 CentralHeatingPump 48.0
+vval 392 DomesticHotWaterPump "00000005"
+vval 401 MixerOneCircuitPump 0.0
+vval 1231 FuelCellPrimaryPump "00000000"
+vval 1263 DiverterValveBoilerHydraulicTower "6462"
+vval 1264 DiverterValveFuelCellHydraulicTower "0001"
+vval 1214 FuelCellElectricalPowerOutput 0.0
+vval 1367 FuelCellThermalPower 0.0
+vval 1190 ThermalPower 0.0
+vval 1363 FuelCellTargetOperationMode {"ID": 1, "Text": "Maintenance"}
+vval 360 DomesticHotWaterOutletSensor {"Actual": 32.1, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Error": 0}
+vval 271 DomesticHotWaterSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 281 BufferTopTemperatureSensor {"Actual": 39.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 277 BufferBottomTemperatureSensor {"Actual": 18.8, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1435 FuelCellFlowTemperatureSensor {"Actual": 21.3, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1436 FuelCellReturnTemperatureSensor {"Actual": 20.6, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 318 WaterPressureSensor {"Actual": 1.4, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 331 FlueGasTemperatureSensor {"Actual": 36.0, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 1043 AllengraSensor {"Flow": 169.0, "Temperature": 30.9, "Unknown": "00"}
+vval 268 FlowTemperatureSensor {"Actual": 32.5, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 283 HydraulicSeparatorReturnTemperatureSensor {"Actual": 30.4, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 284 MixerOneCircuitFlowTemperatureSensor {"Actual": 32.5, "Minimum": 0.0, "Maximum": 0.0, "Average": 0.0, "Unknown": 0}
+vval 274 OutsideTemperatureSensor {"Actual": 10.2, "Average": 0.0, "Minimum": 0.0, "Maximum": 0.0, "Unknown": 0}
+vval 524 ModulationTargetSetpoint 0.0
+vval 526 ModulationCurrentValue 0.0
+vval 987 MixerOneCircuitFlowTemperatureTargetSetpoint 40.8
+vval 381 CentralHeatingPump 48.0
+vval 392 DomesticHotWaterPump "00000005"
+vval 401 MixerOneCircuitPump 0.0
+vval 1231 FuelCellPrimaryPump "00000000"
+vval 1263 DiverterValveBoilerHydraulicTower "6462"
+vval 1264 DiverterValveFuelCellHydraulicTower "0001"
+vval 1214 FuelCellElectricalPowerOutput 0.0
+vval 1367 FuelCellThermalPower 0.0
+vval 1190 ThermalPower 0.0
+vval 1363 FuelCellTargetOperationMode {"ID": 1, "Text": "Maintenance"}
+closing 0x680 - bye!
