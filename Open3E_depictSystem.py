@@ -50,13 +50,15 @@ can = "can0"
 # scan methods ~~~~~~~~~~~~~~~~~~~~~~
 def scan_cobs(startcob:int, lastcob:int) -> tuple:  # list of responding cobs tuples (cobid,devprop)
     lstfounds = []
-    lstskips = []  # skip respond cobs    
+    lstskips = [1671]  # skip respond cobs    
     chkdid = 256
 
     print(f"scan COB-IDs {hex(startcob)} to {hex(lastcob)} ...") 
     for tx in range(startcob, lastcob + 1):
         if(tx in lstskips):
             continue
+
+        print(tx)
 
         if(args.doip != None):
             conn = DoIPClientUDSConnector(DoIPClient(args.doip, tx))
@@ -121,7 +123,7 @@ def scan_dids(ecutx:int, startdid:int, lastdid:int) -> tuple:  # list of tuples 
     with Client(conn, config=config) as client:
         for did in range(startdid, lastdid+1):
             retry = 0
-            while(retry < 4):
+            while(retry < 8):
                 try:
                     response = client.send_request(
                         udsoncan.Request(
@@ -144,7 +146,7 @@ def scan_dids(ecutx:int, startdid:int, lastdid:int) -> tuple:  # list of tuples 
                     if(type(e) in [TimeoutError, udsoncan.exceptions.TimeoutException]):
                         time.sleep(0.1)
                         retry += 1
-                        if(retry == 4):
+                        if(retry == 8):
                             print(did, "ERROR max retry")
                             raise Exception(e)
                     else:
@@ -152,7 +154,7 @@ def scan_dids(ecutx:int, startdid:int, lastdid:int) -> tuple:  # list of tuples 
                         #time.sleep(2)  # allow everything calm down
                         raise Exception(e)
             # short rest before next did     
-            time.sleep(0.05)
+            time.sleep(0.1)
     # all dids tried
     client.close()
     print(f"{len(lstfounds)} DIDs found on {shex(ecutx)}.")
