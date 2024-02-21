@@ -1,0 +1,17 @@
+{
+  "0x680": {
+    "tx": "0x680",
+    "dpList": "Open3Edatapoints_680.py",
+    "prop": "HMUMASTER"
+  },
+  "0x684": {
+    "tx": "0x684",
+    "dpList": "Open3Edatapoints_684.py",
+    "prop": "HMI"
+  },
+  "0x688": {
+    "tx": "0x688",
+    "dpList": "Open3Edatapoints_688.py",
+    "prop": "BCU"
+  }
+}
