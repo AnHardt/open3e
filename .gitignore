@@ -7,8 +7,8 @@ scan.log
 *.log
 # user specific files
 config.json
-devices*
-Open3Edatapoints_6*
+#devices*
+#Open3Edatapoints_6*
 virtdata_*
 .vscode/
 venv
