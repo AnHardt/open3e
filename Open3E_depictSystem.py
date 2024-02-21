@@ -39,7 +39,7 @@ import Open3Eenums
 
 # cob scan, default 0x680 to 0x6ff  
 startcob = 0x680
-lastcob = 0x6ff
+lastcob = 0x688
 
 # did scan, default 256 to 3500
 startdid = 256
@@ -52,14 +52,14 @@ can = "can0"
 # scan methods ~~~~~~~~~~~~~~~~~~~~~~
 def scan_cobs(startcob:int, lastcob:int) -> tuple:  # list of responding cobs tuples (cobid,devprop)
     lstfounds = []
-    lstskips = []  # skip respond cobs    
+    lstskips = [1665,1666,1667,1669,1670,1671]  # skip respond cobs    
     chkdid = 256
 
     print(f"scan COB-IDs {hex(startcob)} to {hex(lastcob)} ...") 
     for tx in range(startcob, lastcob + 1):
         if(tx in lstskips):
             continue
-
+        print(tx)
         rx = tx + 0x10
         if(args.doip != None):
             conn = DoIPClientUDSConnector(DoIPClient(args.doip, tx))
@@ -98,7 +98,7 @@ def scan_cobs(startcob:int, lastcob:int) -> tuple:  # list of responding cobs tu
             client.close()
             if(args.doip == None):
                 bus.shutdown()
-        time.sleep(0.1)
+        time.sleep(1)
     # all addresses done
     print(f"{len(lstfounds)} responding COB-IDs found.")
     return lstfounds
