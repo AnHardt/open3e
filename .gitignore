@@ -4,6 +4,7 @@ __pycache__/
 # local log files
 udsoncan.log
 scan.log
+*.log
 # user specific files
 config.json
 devices*
@@ -11,3 +12,6 @@ Open3Edatapoints_6*
 virtdata_*
 .vscode/
 venv
+pt2*
+*.sh
+.gitignore
