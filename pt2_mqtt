@@ -1,0 +1,17 @@
+--can
+can0
+-cnfg
+devices.json
+--timestep
+30
+--mqtt
+192.168.1.73:1883:open3e
+--mqttuser
+mqtt:MqttSesam
+--mqttformatstring
+{ecuAddr:03X}_{didNumber}_{didName}
+--listen
+open3e/cmnd
+-j
+-r
+268,274,271,277,281,283,284,318,318,360,381,392,401,505,506,524,526,987,1043,1190,1214,1231,1263,1264,1363,1367,1435,1436

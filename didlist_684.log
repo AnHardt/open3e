@@ -1,0 +1,7 @@
+256 : O3EComplexType(36, "BusIdentification", [O3EByteVal(1, "BusAddress"), O3EEnum(1, "BusType", "BusTypes"), O3EEnum(1, "DeviceProperty","Devices"), O3EEnum(1, "DeviceFunction","Devices"), O3ESoftVers(8, "SW-Version"), O3ESoftVers(8, "HW-Version"), O3EUtf8(16, "VIN")]),
+580 : O3ESoftVers(8, "SoftwareVersion"),
+581 : O3ESoftVers(8, "HardwareVersion"),
+928 : O3EUtf8(16, "ElectronicTraceabilityNumber"),
+961 : RawCodec(1, "SecurityAlgorithmNumber"),
+962 : O3ESoftVers(8, "BootLoaderVersion"),
+964 : O3EByteVal(1, "ActiveDiagnosticSession"),
