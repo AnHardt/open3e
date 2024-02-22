@@ -4,10 +4,13 @@ __pycache__/
 # local log files
 udsoncan.log
 scan.log
+*log
 # user specific files
+.gitignore
 config.json
-devices*
-Open3Edatapoints_6*
+#devices*
+#Open3Edatapoints_6*
 virtdata_*
 .vscode/
 venv
+my*

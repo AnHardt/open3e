@@ -1,12 +1,10 @@
 --can
 can0
 --mqtt
-192.168.1.73:1883:open3e
---mqttuser
-mqtt:MqttSesam
+127.0.0.1:1883:open3e
 --mqttformatstring
 {device}_{ecuAddr:03X}_{didNumber}_{didName}
 --listen
 open3e/cmnd
--dev
-vval
+--config
+devices.json
