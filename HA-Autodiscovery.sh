@@ -1,8 +1,40 @@
 #!/bin/bash
 
+#!/bin/bash
+
 host='192.168.1.73'
 user='mqtt'
 password='MqttSesam'
+
+
+DEVICE_CONFIG='{"name":"Heizung_680","identifiers":["Sn_7782093007643208","680"],"manufacturer":"Viessmann","model":"Vitovalor_PT2_F19T","via_device":"Open3E"}'
+echo "###############"
+echo ${DEVICE_CONFIG}
+echo "###############"
+O3E='open3e'
+echo $O3E
+echo "###############"
+O3E_DEVICE='680'
+echo $O3E_DEVICE
+echo "###############"
+
+echo "################ Leistungen ##################################################"
+
+DID_SUB=''
+echo $DID_SUB
+DID_SUB_DIV=''
+echo $DID_SUB_DIV
+DID_UNIT='kW'
+echo $DID_UNIT
+
+DID_NUMBER='1190'
+DID_NAME='ThermalPower'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 
 
 DEVICE_CONFIG='{"name":"Heizung_680","identifiers":["Sn_7782093007643208","680"],"manufacturer":"Viessmann","model":"Vitovalor_PT2_F19T","via_device":"Open3E"}'
@@ -50,13 +82,35 @@ mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_
 	"name": "'$DID_NUMBER'_'$DID_NAME'",
     "device": '${DEVICE_CONFIG}',
 	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+DID_NUMBER='1214'
+DID_NAME='FuelCellElectricalPowerOutput'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "power",
+	"unit_of_measurement": "'$DID_UNIT'",
 	"unit_of_measurement": "'$DID_UNIT'",
 	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+
+DID_NUMBER='1367'
+DID_NAME='FuelCellThermalPower'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
 
@@ -75,6 +129,7 @@ mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
 
@@ -95,7 +150,26 @@ mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_
 	"name": "'$DID_NUMBER'_'$DID_NAME'",
     "device": '${DEVICE_CONFIG}',
 	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
+echo "########################### Temperaturen #######################################"
+
+DID_SUB='Actual'
+echo $DID_SUB
+DID_SUB_DIV='/'
+echo $DID_SUB_DIV
+DID_UNIT='°C'
+echo $DID_UNIT
+
+DID_NUMBER='268'
+DID_NAME='FlowTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"unit_of_measurement": "'$DID_UNIT'",
 	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
@@ -112,13 +186,35 @@ mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_
 	"name": "'$DID_NUMBER'_'$DID_NAME'",
     "device": '${DEVICE_CONFIG}',
 	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+DID_NUMBER='271'
+DID_NAME='DomesticHotWaterSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"unit_of_measurement": "'$DID_UNIT'",
 	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+DID_NUMBER='274'
+DID_NAME='OutsideTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
 DID_NUMBER='274'
@@ -146,13 +242,35 @@ mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_
 	"name": "'$DID_NUMBER'_'$DID_NAME'",
     "device": '${DEVICE_CONFIG}',
 	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+DID_NUMBER='277'
+DID_NAME='BufferBottomTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"unit_of_measurement": "'$DID_UNIT'",
 	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+DID_NUMBER='281'
+DID_NAME='BufferTopTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
 DID_NUMBER='281'
@@ -187,6 +305,16 @@ mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+DID_NUMBER='284'
+DID_NAME='MixerOneCircuitFlowTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
 DID_NUMBER='284'
