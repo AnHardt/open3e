@@ -1,327 +1,335 @@
+#!/bin/bash
+
 host='192.168.1.73'
 user='mqtt'
 password='MqttSesam'
-device_name='Vitovalor PT2 F19T'
-idenifier='Sn 7782093007643208'
-
-# Paste next line in between '' from MQTT 
-did='open3e/680_274_OutsideTemperatureSensor/Actual'
 
 
-################ Leistungen ##################################################
+DEVICE_CONFIG='{"name":"Heizung_680","identifiers":["Sn_7782093007643208","680"],"manufacturer":"Viessmann","model":"Vitovalor_PT2_F19T","via_device":"Open3E"}'
+echo "###############"
+echo ${DEVICE_CONFIG}
+echo "###############"
+O3E='open3e'
+echo $O3E
+echo "###############"
+O3E_DEVICE='680'
+echo $O3E_DEVICE
+echo "###############"
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_1190_ThermalPower/config -m '{
-	"unique_id": "open3e_680_1190_ThermalPower",
-	"name": "open3e_680_1190_ThermalPower",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_1190_ThermalPower",
+echo "################ Leistungen ##################################################"
+
+DID_SUB=''
+echo $DID_SUB
+DID_SUB_DIV=''
+echo $DID_SUB_DIV
+DID_UNIT='kW'
+echo $DID_UNIT
+
+DID_NUMBER='1190'
+DID_NAME='ThermalPower'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "power",
-	"unit_of_measurement": "kW",
+	"unit_of_measurement": "'$DID_UNIT'",
 	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_1190_ThermalPower"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_1214_FuelCellElectricalPowerOutput/config -m '{
-	"unique_id": "open3e_680_1214_FuelCellElectricalPowerOutput",
-	"name": "open3e_680_1214_FuelCellElectricalPowerOutput",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_1214_FuelCellElectricalPowerOutput",
+DID_NUMBER='1214'
+DID_NAME='FuelCellElectricalPowerOutput'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "power",
-	"unit_of_measurement": "kW",
+	"unit_of_measurement": "'$DID_UNIT'",
 	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_1214_FuelCellElectricalPowerOutput"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_1367_FuelCellThermalPower/config -m '{
-	"unique_id": "open3e_680_1367_FuelCellThermalPower",
-	"name": "open3e_680_1367_FuelCellThermalPower",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_1367_FuelCellThermalPower",
+
+DID_NUMBER='1367'
+DID_NAME='FuelCellThermalPower'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "power",
-	"unit_of_measurement": "kW",
+	"unit_of_measurement": "'$DID_UNIT'",
 	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_1367_FuelCellThermalPower"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
 
-###########################Temperaturen#######################################
+echo "########################### Temperaturen #######################################"
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_268_FlowTemperatureSensor_Actual/config -m '{
-	"unique_id": "open3e_680_268_FlowTemperatureSensor_Actual",
-	"name": "open3e_680_268_FlowTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_268_FlowTemperatureSensor/Actual",
+DID_SUB='Actual'
+echo $DID_SUB
+DID_SUB_DIV='/'
+echo $DID_SUB_DIV
+DID_UNIT='°C'
+echo $DID_UNIT
+
+DID_NUMBER='268'
+DID_NAME='FlowTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_268_FlowTemperatureSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_271_DomesticHotWaterSensor_Actual/config -m '{
-	"unique_id": "open3e_680_271_DomesticHotWaterSensor_Actual",
-	"name": "open3e_680_271_DomesticHotWaterSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_271_DomesticHotWaterSensor/Actual",
+DID_NUMBER='271'
+DID_NAME='DomesticHotWaterSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_271_DomesticHotWaterSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_274_OutsideTemperatureSensor_Actual/config -m '{
-	"unique_id": "open3e_680_274_OutsideTemperatureSensor_Actual",
-	"name": "open3e_680_274_OutsideTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_274_OutsideTemperatureSensor/Actual",
+DID_NUMBER='274'
+DID_NAME='OutsideTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_274_OutsideTemperatureSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_277_BufferBottomTemperatureSenso_Actual/config -m '{
-	"unique_id": "open3e_680_277_BufferBottomTemperatureSensor_Actual",
-	"name": "open3e_680_277_BufferBottomTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_281_BufferTopTemperatureSensor/Actual",
+DID_NUMBER='277'
+DID_NAME='BufferBottomTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_277_BufferBottomTemperatureSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_281_BufferTopTemperatureSensor_Actual/config -m '{
-	"unique_id": "open3e_680_281_BufferTopTemperatureSensor_Actual",
-	"name": "open3e_680_281_BufferTopTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_281_BufferTopTemperatureSensor/Actual",
+DID_NUMBER='281'
+DID_NAME='BufferTopTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_281_BufferTopTemperatureSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_283_HydraulicSeparatorReturnTemperatureSensor_Actual/config -m '{
-	"unique_id": "open3e_680_283_HydraulicSeparatorReturnTemperatureSensor_Actual",
-	"name": "open3e_680_283_HydraulicSeparatorReturnTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_283_HydraulicSeparatorReturnTemperatureSensor/Actual",
+DID_NUMBER='283'
+DID_NAME='HydraulicSeparatorReturnTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_283_HydraulicSeparatorReturnTemperatureSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_284_MixerOneCircuitFlowTemperatureSensor_Actual/config -m '{
-	"unique_id": "open3e_680_284_MixerOneCircuitFlowTemperatureSensor_Actual",
-	"name": "open3e_680_284_MixerOneCircuitFlowTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_284_MixerOneCircuitFlowTemperatureSensor/Actual",
+DID_NUMBER='284'
+DID_NAME='MixerOneCircuitFlowTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_284_MixerOneCircuitFlowTemperatureSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_360_DomesticHotWaterOutletSensor_Actual/config -m '{
-	"unique_id": "open3e_680_360_DomesticHotWaterOutletSensor_Actual",
-	"name": "open3e_680_360_DomesticHotWaterOutletSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_360_DomesticHotWaterOutletSensor/Actual",
+DID_NUMBER='360'
+DID_NAME='DomesticHotWaterOutletSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_360_DomesticHotWaterOutletSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_987_MixerOneCircuitFlowTemperatureTargetSetpoint/config -m '{
-	"unique_id": "open3e_680_987_MixerOneCircuitFlowTemperatureTargetSetpoint",
-	"name": "open3e_680_987_MixerOneCircuitFlowTemperatureTargetSetpoint",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_987_MixerOneCircuitFlowTemperatureTargetSetpoint",
+DID_NUMBER='1435'
+DID_NAME='FuelCellFlowTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_987_MixerOneCircuitFlowTemperatureTargetSetpoint"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_1435_FuelCellFlowTemperatureSensor_Actual/config -m '{
-	"unique_id": "open3e_680_1435_FuelCellFlowTemperatureSensor_Actual",
-	"name": "open3e_680_1435_FuelCellFlowTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_1435_FuelCellFlowTemperatureSensor/Actual",
+DID_NUMBER='1436'
+DID_NAME='FuelCellReturnTemperatureSensor'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_1435_FuelCellFlowTemperatureSensor/Actual"
+echo "Set MQTT Sensor Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
+echo "############################ Nunbers #################################################"
+DID_SUB=''
+DID_SUB_DIV=''
+DID_UNIT='°C'
+echo $DID_SUB
+echo $DID_SUB_DIV
+echo $DID_UNIT
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_1436_FuelCellReturnTemperatureSensor_Actual/config -m '{
-	"unique_id": "open3e_680_1436_FuelCellReturnTemperatureSensor_Actual",
-	"name": "open3e_680_1436_FuelCellReturnTemperatureSensor_Actual",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_1436_FuelCellReturnTemperatureSensor/Actual",
+DID_NUMBER='987'
+DID_NAME='MixerOneCircuitFlowTemperatureTargetSetpoint'
+sleep 1
+mosquitto_pub -t 'homeassistant/number/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
 	"device_class": "temperature",
-	"unit_of_measurement": "°C",
-	"value_template": "{{ value_json | float(0) }}",
+	"unit_of_measurement": "'$DID_UNIT'",
+	"value_template": "{{ value_json | float }}",
+    "command_topic": "'$O3E'/cmnd",
+    "command_template": "{% set cmd = {\"mode\": \"write-raw\", \"data\":[[1363, value ]]} %} {{ cmd | to_json }}",
+    "min": 0,
+    "max": 100,
+    "step": 0.1,
 	"state_class": "measurement",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_1436_FuelCellReturnTemperatureSensor/Actual"
 
-mosquitto_pub -t homeassistant/sensor/open3e/680_1363_FuelCellTargetOperationMode_ID/config -m '{
-	"unique_id": "open3e_680_1363_FuelCellTargetOperationMode_ID",
-	"name": "open3e_680_1363_FuelCellTargetOperationMode_ID",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_1363_FuelCellTargetOperationMode/ID",
-	"value_template": "{{ value_json }}",
-	"state_class": "measurement",
+echo "Set MQTT Number Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
+
+echo "############################ Modes ###################################################"
+DID_SUB='ID'
+DID_SUB_DIV='/'
+DID_UNIT=''
+echo $DID_SUB
+echo $DID_SUB_DIV
+echo $DID_UNIT
+
+DID_NUMBER='1363'
+DID_NAME='FuelCellTargetOperationMode'
+sleep 1
+mosquitto_pub -t 'homeassistant/sensor/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+	"unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'",
+	"name": "'$DID_NUMBER'_'$DID_NAME'",
+    "device": '${DEVICE_CONFIG}',
+	"state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
+	"value_template": "{{ value_json | int }}",
 	"qos": 0,
 	"retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Config for open3e/680_1363_FuelCellTargetOperationMode/ID"
+echo "Set MQTT Number Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
 
-#################################################################################
+echo "############################### Selects ###############################################"
+DID_SUB='Text'
+DID_SUB_DIV='/'
+DID_UNIT=''
+echo $DID_SUB
+echo $DID_SUB_DIV
+echo $DID_UNIT
 
-mosquitto_pub -t homeassistant/select/open3e/680_1363_FuelCellTargetOperationMode/config -m '{
-	"unique_id": "open3e_680_1363_FuelCellTargetOperationMode",
-	"name": "open3e_680_1363_FuelCellTargetOperationMode",
-	"device": {
-		"name": "PT2",
-		"identifiers": ["Sn 7782093007643208"],
-		"manufacturer": "Viessmann",
-		"model": "Vitovalor PT2 F19T"
-	},
-	"state_topic": "open3e/680_1363_FuelCellTargetOperationMode",
-	"value_template": "{{ value_json.ID}}",
-    "command_topic": "open3e/cmnd",
-	"command_template": >
-        {% set values = { '0':'00', '1':'01', '2':'02', '3':'03', '4':'04'} %}
-        {% set cmd = {'mode': 'write-raw', 'data':[[1363, values[value]]]} %}
-        {{ cmd | to_json }}
-    "options":
-      - "Off"
-      - "Maintenance"
-      - "Energy manager OFF"
-      - "Ecological"
-      - "Economical"
-	"qos": 0,
-	"retain": true
+DID_NUMBER='1363'
+DID_NAME='FuelCellTargetOperationMode'
+sleep 1
+mosquitto_pub -t 'homeassistant/select/'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'/config' -m '{
+    "unique_id": "'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'",
+    "name": "'$DID_NUMBER'_'$DID_NAME'_'$DID_SUB'",
+    "device": '${DEVICE_CONFIG}',
+    "state_topic": "'$O3E'/'$O3E_DEVICE'_'$DID_NUMBER'_'$DID_NAME''$DID_SUB_DIV''$DID_SUB'",
+    "command_topic": "'$O3E'/cmnd",
+    "command_template": "{% set values = { \"Off\":\"00\", \"Maintenance\":\"01\", \"Energy manager OFF\":\"02\", \"Ecological\":\"03\", \"Economical\":\"04\"} %} {% set cmd = {\"mode\": \"write-raw\", \"data\":[[1363, values[value]]]} %} {{ cmd | to_json }}",
+    "options": ["Off", "Maintenance", "Energy manager OFF", "Ecological", "Economical"],
+    "qos": 0,
+    "retain": true
 }' -u $user -P $password -h $host
-echo "Set MQTT Select Config for open3e/680_1363_FuelCellTargetOperationMode"
+echo "Set MQTT Select Config for "$O3E"/"$O3E_DEVICE"_"$DID_NUMBER"_"$DID_NAME""$DID_SUB_DIV""$DID_SUB
