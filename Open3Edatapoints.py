@@ -146,8 +146,8 @@ dataIdentifiers = {
         518 : RawCodec(8, "HolidayAtHomePhaseCircuitThree"),
         519 : RawCodec(8, "HolidayPhaseCircuitFour"),
         520 : RawCodec(8, "HolidayAtHomePhaseCircuitFour"),
-        521 : O3EInt16(2, "OperatingHoursTillService", scale=1.0),
-        522 : O3EComplexType(4, "ServiceDateNext",[O3ESdate(3, "Date"), O3EByteVal(1, "Status")]),
+        521 : O3EInt16(2, "OperatingHoursTillService", scale=1.0), # 0 - 25500
+        522 : O3EComplexType(4, "ServiceDateNext",[O3ESdate(3, "Date"), O3EByteVal(1, "Status")]), #522.3 lt Handbuch seviceinterval 0:Nicht Eingestellt, 1:3Monate, 2:6M, 3:12M, 4:18M, 5:24M
         523 : O3ESdate(3, "ServiceDateLast"),
         524 : O3EInt16(2, "ModulationTargetSetpoint"),
         525 : O3EInt16(2, "ExternalModulationSetpoint"),
@@ -179,8 +179,8 @@ dataIdentifiers = {
         589 : O3EInt32(4, "VentilationOperationHours", scale=1.0),
         592 : O3EMacAddr(6, "MacAddressLan"),
         593 : O3EMacAddr(6, "GatewayMac"),
-        596 : RawCodec(1, "CentralHeatingPartLoadPercent"),
-        597 : O3EInt8(1, "DomesticHotWaterPartLoadPercent", scale = 1),
+        596 : O3EInt8(1, "CentralHeatingPartLoadPercent", scale = 1), # 0 - 100%
+        597 : O3EInt8(1, "DomesticHotWaterPartLoadPercent", scale = 1), # 0 - 100%
         600 : RawCodec(3, "FuelCellReset"),
         602 : O3EByteVal(1, "GatewayRemoteLocalNetworkStatus"),
         603 : O3EByteVal(1, "GatewayApEnable"),
@@ -618,7 +618,7 @@ dataIdentifiers = {
         1396 : O3EComplexType(3, "MixerTwoCircuitSummerSavingTemperatureThreshold", [O3EByteVal(1, "State"), O3EInt16(2, "Temperature", signed=True)]),
         1397 : O3EComplexType(3, "MixerThreeCircuitSummerSavingTemperatureThreshold", [O3EByteVal(1, "State"), O3EInt16(2, "Temperature", signed=True)]),
         1398 : O3EComplexType(3, "MixerFourCircuitSummerSavingTemperatureThreshold", [O3EByteVal(1, "State"), O3EInt16(2, "Temperature", signed=True)]),
-        1411 : O3EByteVal(1, "ResetServiceInterval"),
+        1411 : O3EBool(1, "ResetServiceInterval"),
         1415 : O3EComplexType(2, "MixerOneCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
         1416 : O3EComplexType(2, "MixerTwoCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
         1417 : O3EComplexType(2, "MixerThreeCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
@@ -628,7 +628,7 @@ dataIdentifiers = {
         1421 : O3EComplexType(2, "MixerSevenCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
         1422 : O3EComplexType(2, "MixerEightCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
         1431 : RawCodec(8, "CarbonEmissionSettings"),
-        1432 : RawCodec(4, "CentralHeatingPumpPerformance"),
+        1432 : O3EComplexType(4, "CentralHeatingPumpPerformance", [RawCodec(1, "Unknown"), O3EInt8(1, "ResidualHeadControlOfPrimaryCircuitPump"), O3EInt8(1, "OperatingModeOfPrimaryCircuitPump"), RawCodec(1, "Unknown"), ]), # 0 - 266mBar, 0 - 20mBar
         1434 : RawCodec(1, "ResetFuelCellStatistics"),
         1435 : O3EComplexType(9, "FuelCellFlowTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
         1436 : O3EComplexType(9, "FuelCellReturnTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
@@ -650,7 +650,7 @@ dataIdentifiers = {
         1492 : RawCodec(4, "SolarCircuitPumpHysteresis"),
         1493 : RawCodec(16, "HeatEnginePerformanceStatistics"),
         1494 : O3ESoftVers(8, "OemProductVersion"),
-        1503 : RawCodec(1, "MinimumLoadPercent"),
+        1503 : O3EInt8(1, "MinimumLoadPercent"), #5 - 100%
         1504 : O3EEnum(1, "TimeSettingSource", "TimeSettingSources"),
         1505 : RawCodec(2, "SolarStagnationTemperatureOffset"),
         1529 : O3EByteVal(1, "SolarRechargeSuppressionImpact"),
