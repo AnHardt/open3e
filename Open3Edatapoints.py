@@ -181,7 +181,7 @@ dataIdentifiers = {
         593 : O3EMacAddr(6, "GatewayMac"),
         596 : O3EInt8(1, "CentralHeatingPartLoadPercent", scale = 1), # 0 - 100%
         597 : O3EInt8(1, "DomesticHotWaterPartLoadPercent", scale = 1), # 0 - 100%
-        600 : RawCodec(3, "FuelCellReset"),
+        600 : RawCodec(3, "FuelCellServiceCounterReset"), #600.0 bool. Wenig info für 3 Byte. "000000"
         602 : O3EByteVal(1, "GatewayRemoteLocalNetworkStatus"),
         603 : O3EByteVal(1, "GatewayApEnable"),
         604 : O3EComplexType(76, "GatewayApDataSet", [O3EUtf8(32, "SSID_AccessPoint"), O3EUtf8(40, "Password_AccessPoint"), O3EIp4Addr(4, "IP-Address_AccessPoint")]),
@@ -349,7 +349,7 @@ dataIdentifiers = {
         1090 : RawCodec(9, "EnvironmentAirQuality"),
         1093 : RawCodec(2, "ExhaustPipeLength"),
         1096 : O3EByteVal(1, "ResetEnergyManagerDataCollector"),
-        1097 : RawCodec(20, "ElectricityPrice"),
+        1097 : O3EComplexType(20, "ElectricityPrice", [O3EInt32(4, "Export", scale=1000), RawCodec(4, "Unknown1.1"), O3EInt16(2, "Import", scale=1000), RawCodec(10, "Unknown2.3"), ]), #1097.0 Einspeisepreis, 1097.2 Bezugspreis in €
         1098 : O3EComplexType(20, "GasProperties", [O3EInt32(4, "PricePerM3.0", scale=10), RawCodec(4, "Unknown.1"), O3EInt16(2, "Unknown.2", scale=1), O3EInt32(4, "Brennwet.3", scale=10), O3EInt16(2, "GasVolumeCorrectionFactor.4", scale=10000), O3EInt32(4, "CalorificValue.5", scale=10000), ]), 
         1100 : O3EComplexType(3, "CentralHeatingPumpMinimumMaximumLimit", [O3EInt8(1, "MinSpeed"), O3EInt8(1, "MaxSpeed"), O3EInt8(1, "Setpoint")]),
         1101 : O3EComplexType(3, "DomesticHotWaterPumpMinimumMaximumLimit", [O3EInt8(1, "MinSpeed"), O3EInt8(1, "MaxSpeed"), O3EInt8(1, "Setpoint")]),
@@ -627,7 +627,7 @@ dataIdentifiers = {
         1420 : O3EComplexType(2, "MixerSixCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
         1421 : O3EComplexType(2, "MixerSevenCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
         1422 : O3EComplexType(2, "MixerEightCircuitOperationState",[O3EEnum(1,"Mode","OpModes"),O3EEnum(1,"State","OpStates")]),
-        1431 : RawCodec(8, "CarbonEmissionSettings"),
+        1431 : O3EComplexType(8, "CarbonEmissionSettings",[O3EInt16(2, "CO2FactorGasPerKWh", scale=0.1), O3EInt16(2, "Unknown", scale=0.1), O3EInt16(2, "CO2FactorPowerDrawnPerKWh", scale=1), O3EInt16(2, "CO2FactorPowerExportedToGridPerKWh", scale=1), ]),
         1432 : O3EComplexType(4, "CentralHeatingPumpPerformance", [RawCodec(1, "Unknown"), O3EInt8(1, "ResidualHeadControlOfPrimaryCircuitPump"), O3EInt8(1, "OperatingModeOfPrimaryCircuitPump"), RawCodec(1, "Unknown"), ]), # 0 - 266mBar, 0 - 20mBar
         1434 : RawCodec(1, "ResetFuelCellStatistics"),
         1435 : O3EComplexType(9, "FuelCellFlowTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
