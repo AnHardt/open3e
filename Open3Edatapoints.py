@@ -69,7 +69,6 @@ dataIdentifiers = {
         329 : O3EComplexType(9, "ExtractAirTemperatureSensor",[O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Error")]),
         330 : O3EComplexType(9, "ExhaustAirTemperatureSensor",[O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Error")]),
         331 : O3EComplexType(9, "FlueGasTemperatureSensor", [O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Unknown")]),
-        323 : RawCodec(9, "EnhancedVapourInjectionTemperatureSensor"),
         334 : O3EComplexType(9, "MixerOneCircuitRoomTemperatureSensor",[O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Error")]),
         335 : O3EComplexType(9, "MixerTwoCircuitRoomTemperatureSensor",[O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Error")]),
         336 : O3EComplexType(9, "MixerThreeCircuitRoomTemperatureSensor",[O3EInt16(2, "Actual", signed=True), O3EInt16(2, "Minimum", signed=True), O3EInt16(2, "Maximum", signed=True), O3EInt16(2, "Average", signed=True), O3EByteVal(1, "Error")]),
@@ -135,7 +134,7 @@ dataIdentifiers = {
         505 : O3ESdate(3, "Date"),
         506 : O3EStime(3, "Time"),
         507 : O3EUtc(4, "UniversalTimeCoordinated"),
-        508 : O3EByteVal(1, "UniversalTimeCoordinatedOffset"),
+        508 : O3EInt8(1, "UniversalTimeCoordinatedOffset", scale=2.0, signed=True), # -12 - +12 sepp 0,5h
         510 : O3EByteVal(1, "Language"),
         511 : RawCodec(8, "HolidayPhase"),
         512 : RawCodec(8, "HolidayAtHomePhase"),
@@ -154,7 +153,7 @@ dataIdentifiers = {
         525 : O3EInt16(2, "ExternalModulationSetpoint"),
         526 : O3EInt16(2, "ModulationCurrentValue"),
         527 : O3EInt16(2, "FlowTemperatureTargetSetpoint", signed=True),
-        528 : O3EInt16(2, "ExternalTargetFlowTemperatureSetpoint"),
+        528 : O3EInt16(2, "ExternalTargetFlowTemperatureSetpoint"), # +20 - +82 step 1
         531 : O3EComplexType(2, "DomesticHotWaterOperationState",[O3EByteVal(1,"Mode"),O3EByteVal(1,"State")]),
         533 : O3EComplexType(2, "VentilationTargetOperationLevel",[O3EByteVal(1, "Acutual"), O3EByteVal(1, "Unknown1")]),
         534 : RawCodec(2, "DomesticHotWaterPumpPostRunTime"),
@@ -276,8 +275,8 @@ dataIdentifiers = {
         885 : O3EComplexType(4, "MixerSixCircuitCentralHeatingCurve", [O3EInt8(1, "Gradient", scale=10), O3EInt8(1, "Level", signed=True), O3EInt16(2, "BasePoint", signed=True)]),
         886 : O3EComplexType(4, "MixerSevenCircuitCentralHeatingCurve", [O3EInt8(1, "Gradient", scale=10), O3EInt8(1, "Level", signed=True), O3EInt16(2, "BasePoint", signed=True)]),
         887 : O3EComplexType(4, "MixerEightCircuitCentralHeatingCurve", [O3EInt8(1, "Gradient", scale=10), O3EInt8(1, "Level", signed=True), O3EInt16(2, "BasePoint", signed=True)]),
-        896 : O3EInt16(2, "OutsideTemperatureOffset", signed=True),
-        897 : O3EByteVal(1, "ScreedDryingProfileActivation"),
+        896 : O3EInt16(2, "OutsideTemperatureOffset", signed=True), # -10 - +10 step 1
+        897 : O3EByteVal(1, "ScreedDryingProfileActivation"), # 0 und (2 - 7) step 1
         898 : O3EByteVal(1, "RemainingFloorDryingDays"),
         900 : O3EByteVal(1, "GatewayRemoteSignalStrength"),
         901 : O3EByteVal(1, "ServiceManagerIsRequired"),
@@ -288,7 +287,7 @@ dataIdentifiers = {
         907 : O3EByteVal(1, "UserInterfaceDefaultHomeScreen"),
         908 : O3EByteVal(1, "ExternalFaultSignal"),
         909 : O3EByteVal(1, "ExternalFaultSignalInput"),
-        912 : RawCodec(5, "DaylightSavingTimeActive"),
+        912 : O3EComplexType(5, "DaylightSavingTimeActive", [O3EBool(1,"Mode"), O3EInt8(1, "SpringEarliestDay"), O3EInt8(1, "SpringMonth"), O3EInt8(1, "AutumnEarliestDay"), O3EInt8(1, "AutumnMonth")]),
         915 : O3ESdate(3, "LastBackupDate"),
         917 : RawCodec(20, "RemoteWeatherService"),
         918 : O3EByteVal(1, "TradeFairMode"),
@@ -351,7 +350,7 @@ dataIdentifiers = {
         1093 : RawCodec(2, "ExhaustPipeLength"),
         1096 : O3EByteVal(1, "ResetEnergyManagerDataCollector"),
         1097 : RawCodec(20, "ElectricityPrice"),
-        1098 : RawCodec(20, "GasProperties"),
+        1098 : O3EComplexType(20, "GasProperties", [O3EInt32(4, "PricePerM3.0", scale=10), RawCodec(4, "Unknown.1"), O3EInt16(2, "Unknown.2", scale=1), O3EInt32(4, "Brennwet.3", scale=10), O3EInt16(2, "GasVolumeCorrectionFactor.4", scale=10000), O3EInt32(4, "CalorificValue.5", scale=10000), ]), 
         1100 : O3EComplexType(3, "CentralHeatingPumpMinimumMaximumLimit", [O3EInt8(1, "MinSpeed"), O3EInt8(1, "MaxSpeed"), O3EInt8(1, "Setpoint")]),
         1101 : O3EComplexType(3, "DomesticHotWaterPumpMinimumMaximumLimit", [O3EInt8(1, "MinSpeed"), O3EInt8(1, "MaxSpeed"), O3EInt8(1, "Setpoint")]),
         1102 : O3EComplexType(3, "MixerOneCircuitPumpMinimumMaximumLimit", [O3EInt8(1, "MinSpeed"), O3EInt8(1, "MaxSpeed"), O3EInt8(1, "Setpoint")]),
@@ -365,7 +364,7 @@ dataIdentifiers = {
         1136 : RawCodec(4, "SolarProperty"),
         1137 : O3EByteVal(1, "ServiceModeActivation"),
         1138 : RawCodec(1, "AccentLedBar"),
-        1139 : RawCodec(7, "CentralHeatingCurveAdaptionParameter"),
+        1139 : O3EComplexType(7, "CentralHeatingCurveAdaptionParameter", [O3EInt16(2, "0", signed=True), O3EInt16(2, "1", signed=True), RawCodec(3, "Unknown"),]), # "Aussentemperaturgrenze für Aufhebung des reduzierten Raumtemperatur-Sollwerts", "Aussentemperaturgrenze für Anhebung des reduzierte Aussentemperatur-Sollwerts auf den normalen Raumtemperatur-Sollwert" -61 - +10 step 1, -60 - +10 step 1
         1165 : O3EByteVal(1, "BackendConnectionStatus"),
         1166 : RawCodec(5, "ResetDtcHistory"),
         1167 : O3EInt16(2, "ExternalDomesticHotWaterTemperatureSetpoint", signed=True),
