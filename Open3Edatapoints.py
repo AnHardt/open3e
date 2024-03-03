@@ -127,9 +127,9 @@ dataIdentifiers = {
         477 : RawCodec(2, "MixerThreeCircuitThreeWayValvePositionPercent"),
         478 : RawCodec(2, "MixerFourCircuitThreeWayValvePositionPercent"),
         491 : O3EComplexType(2, "DomesticHotWaterCirculationPump",[O3EByteVal(1,"State"),O3EByteVal(1,"Unknown")]),                
-        497 : O3EComplexType(5, "DomesticHotWaterCirculationPumpMode",[O3EByteVal(1, "Mode"), O3EByteVal(1, "HygenieActive"), O3EByteVal(1, "HeatingActive"), O3EByteVal(1, "Unknown"), O3EByteVal(1, "Cycles")]),
+        497 : O3EComplexType(5, "DomesticHotWaterCirculationPumpMode",[O3EByteVal(1, "Mode"), O3EByteVal(1, "HygenieActive"), O3EByteVal(1, "HeatingActive"), O3EByteVal(1, "Unknown"), O3EByteVal(1, "Cycles")]), # 497.1 und 497.2 eigentlich bool
         500 : RawCodec(2, "CentralHeatDemandExternalAc"),
-        503 : RawCodec(2, "ScaldProtection"),
+        503 : O3EComplexType(2, "ScaldProtection", [O3EBool(2, "Mode"),]),
         504 : RawCodec(14, "DomesticHotWaterSetpointMetaData"),
         505 : O3ESdate(3, "Date"),
         506 : O3EStime(3, "Time"),
@@ -156,7 +156,7 @@ dataIdentifiers = {
         528 : O3EInt16(2, "ExternalTargetFlowTemperatureSetpoint"), # +20 - +82 step 1
         531 : O3EComplexType(2, "DomesticHotWaterOperationState",[O3EByteVal(1,"Mode"),O3EByteVal(1,"State")]),
         533 : O3EComplexType(2, "VentilationTargetOperationLevel",[O3EByteVal(1, "Acutual"), O3EByteVal(1, "Unknown1")]),
-        534 : RawCodec(2, "DomesticHotWaterPumpPostRunTime"),
+        534 : O3EInt16(2, "DomesticHotWaterPumpPostRunTime", scale=1), #0 - 900 step 60 sekunden
         535 : RawCodec(12, "ObjectElectricalEnergyStatistical"),
         537 : O3EComplexType(2, "ExternalMixerOneCircuitTargetOperationMode",[O3EByteVal(1,"Mode"),O3EByteVal(1,"State")]),
         538 : O3EComplexType(2, "ExternalDomesticHotWaterTargetOperationMode",[O3EByteVal(1,"Mode"),O3EByteVal(1,"State")]),
@@ -342,8 +342,8 @@ dataIdentifiers = {
         1044 : RawCodec(2, "SecondaryCentralHeatingPump"),
         1047 : RawCodec(11, "TimeSeriesRecordedFlowTemperatureSensor"),
         1084 : RawCodec(4, "FlowTemperatureMinimumMaximumLimit"),
-        1085 : O3EInt16(4, "DomesticHotWaterHysteresis"),
-        1087 : O3EInt8(2, "MaximumDomesticHotWaterLoadingTime"),
+        1085 : O3EInt16(4, "DomesticHotWaterHysteresis", scale=10),# Im Menü beschriben als: "Speicherbeheizung Einschaltpunkt Soll" mit 2,5K
+        1087 : O3EComplexType(2, "DomesticHotwaterTimeSetpoint", [O3EInt8(1, "MaximumLoadingTime"),O3EInt8(1, "MinimumBreakTime")]), ## Im Menü beschrieben als: "1087.1 Minimale Wartezeit bis die nächsten Trinkwassererwärmung erfolgt" mit 60 minuten
         1088 : O3EByteVal(1, "OutsideAirBypass"),
         1089 : O3EByteVal(1, "InsideAirBypass"),
         1090 : RawCodec(9, "EnvironmentAirQuality"),
