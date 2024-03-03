@@ -690,6 +690,63 @@
       ]
     }
   },
+  "270": {
+    "codec": "O3EComplexType",
+    "len": 9,
+    "id": "WaterFlowSensor",
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Actual",
+          "args": {
+            "scale": 10.0,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Minimum",
+          "args": {
+            "scale": 10.0,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Maximum",
+          "args": {
+            "scale": 10.0,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Average",
+          "args": {
+            "scale": 10.0,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EByteVal",
+          "len": 1,
+          "id": "Error",
+          "args": {
+            "offset": 0
+          }
+        }
+      ]
+    }
+  },
   "271": {
     "codec": "O3EComplexType",
     "len": 9,
@@ -829,6 +886,16 @@
         {
           "codec": "O3EInt16",
           "len": 2,
+          "id": "Average",
+          "args": {
+            "scale": 10.0,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
           "id": "Minimum",
           "args": {
             "scale": 10.0,
@@ -840,16 +907,6 @@
           "codec": "O3EInt16",
           "len": 2,
           "id": "Maximum",
-          "args": {
-            "scale": 10.0,
-            "signed": true,
-            "offset": 0
-          }
-        },
-        {
-          "codec": "O3EInt16",
-          "len": 2,
-          "id": "Average",
           "args": {
             "scale": 10.0,
             "signed": true,
@@ -2654,6 +2711,16 @@
       ]
     }
   },
+  "356": {
+    "codec": "O3EInt16",
+    "len": 2,
+    "id": "MainPowerSupplyValue",
+    "args": {
+      "scale": 1,
+      "signed": false,
+      "offset": 0
+    }
+  },
   "360": {
     "codec": "O3EComplexType",
     "len": 9,
@@ -3311,7 +3378,7 @@
         {
           "codec": "O3EByteVal",
           "len": 1,
-          "id": "Unknown1",
+          "id": "Duration",
           "args": {
             "offset": 0
           }
@@ -3364,7 +3431,7 @@
         {
           "codec": "O3EByteVal",
           "len": 1,
-          "id": "Unknown1",
+          "id": "Duration",
           "args": {
             "offset": 0
           }
@@ -3417,7 +3484,7 @@
         {
           "codec": "O3EByteVal",
           "len": 1,
-          "id": "Unknown1",
+          "id": "Duration",
           "args": {
             "offset": 0
           }
@@ -3476,7 +3543,7 @@
         {
           "codec": "O3EByteVal",
           "len": 1,
-          "id": "Unknown1",
+          "id": "Duration",
           "args": {
             "offset": 0
           }
@@ -4017,10 +4084,21 @@
     "args": {}
   },
   "503": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 2,
     "id": "ScaldProtection",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EBool",
+          "len": 2,
+          "id": "Mode",
+          "args": {
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "504": {
     "codec": "RawCodec",
@@ -4049,10 +4127,12 @@
     }
   },
   "508": {
-    "codec": "O3EByteVal",
+    "codec": "O3EInt8",
     "len": 1,
     "id": "UniversalTimeCoordinatedOffset",
     "args": {
+      "scale": 2.0,
+      "signed": true,
       "offset": 0
     }
   },
@@ -4168,7 +4248,7 @@
     "len": 2,
     "id": "ModulationTargetSetpoint",
     "args": {
-      "scale": 10.0,
+      "scale": 1,
       "signed": false,
       "offset": 0
     }
@@ -4264,16 +4344,53 @@
     }
   },
   "534": {
-    "codec": "RawCodec",
+    "codec": "O3EInt16",
     "len": 2,
     "id": "DomesticHotWaterPumpPostRunTime",
-    "args": {}
+    "args": {
+      "scale": 1,
+      "signed": false,
+      "offset": 0
+    }
   },
   "535": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 12,
     "id": "ObjectElectricalEnergyStatistical",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Export",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Import",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Production",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "537": {
     "codec": "O3EComplexType",
@@ -4829,7 +4946,7 @@
     "args": {}
   },
   "572": {
-    "codec": "RawCodec",
+    "codec": "O3ESdate",
     "len": 3,
     "id": "SetDefaultValuesDate",
     "args": {}
@@ -4889,10 +5006,14 @@
     "args": {}
   },
   "596": {
-    "codec": "RawCodec",
+    "codec": "O3EInt8",
     "len": 1,
     "id": "CentralHeatingPartLoadPercent",
-    "args": {}
+    "args": {
+      "scale": 1,
+      "signed": false,
+      "offset": 0
+    }
   },
   "597": {
     "codec": "O3EInt8",
@@ -4907,7 +5028,7 @@
   "600": {
     "codec": "RawCodec",
     "len": 3,
-    "id": "FuelCellReset",
+    "id": "FuelCellServiceCounterReset",
     "args": {}
   },
   "602": {
@@ -8384,10 +8505,61 @@
     }
   },
   "912": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 5,
     "id": "DaylightSavingTimeActive",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EBool",
+          "len": 1,
+          "id": "Mode",
+          "args": {
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "SpringEarliestDay",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "SpringMonth",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "AutumnEarliestDay",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "AutumnMonth",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "915": {
     "codec": "O3ESdate",
@@ -9488,7 +9660,7 @@
         {
           "codec": "O3EInt16",
           "len": 2,
-          "id": "Actual",
+          "id": "Flow",
           "args": {
             "scale": 10.0,
             "signed": false,
@@ -9498,7 +9670,7 @@
         {
           "codec": "O3EInt16",
           "len": 2,
-          "id": "Minimum",
+          "id": "Temperature",
           "args": {
             "scale": 10.0,
             "signed": false,
@@ -9537,19 +9709,38 @@
     "len": 4,
     "id": "DomesticHotWaterHysteresis",
     "args": {
-      "scale": 10.0,
+      "scale": 10,
       "signed": false,
       "offset": 0
     }
   },
   "1087": {
-    "codec": "O3EInt8",
+    "codec": "O3EComplexType",
     "len": 2,
-    "id": "MaximumDomesticHotWaterLoadingTime",
+    "id": "DomesticHotwaterTimeSetpoint",
     "args": {
-      "scale": 1.0,
-      "signed": false,
-      "offset": 0
+      "subTypes": [
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "MaximumLoadingTime",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "MinimumBreakTime",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
     }
   },
   "1088": {
@@ -9589,16 +9780,110 @@
     }
   },
   "1097": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 20,
     "id": "ElectricityPrice",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Export",
+          "args": {
+            "scale": 1000,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 4,
+          "id": "Unknown1.1",
+          "args": {}
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Import",
+          "args": {
+            "scale": 1000,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 10,
+          "id": "Unknown2.3",
+          "args": {}
+        }
+      ]
+    }
   },
   "1098": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 20,
     "id": "GasProperties",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "PricePerM3.0",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 4,
+          "id": "Unknown.1",
+          "args": {}
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Unknown.2",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Brennwet.3",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "GasVolumeCorrectionFactor.4",
+          "args": {
+            "scale": 10000,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "CalorificValue.5",
+          "args": {
+            "scale": 10000,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1100": {
     "codec": "O3EComplexType",
@@ -9883,6 +10168,18 @@
       "offset": 0
     }
   },
+  "1126": {
+    "codec": "RawCodec",
+    "len": 4,
+    "id": "SolarMinimumMaximumCollectorTemperature",
+    "args": {}
+  },
+  "1127": {
+    "codec": "RawCodec",
+    "len": 1,
+    "id": "SolarCollectorFrostprotection",
+    "args": {}
+  },
   "1128": {
     "codec": "O3EInt16",
     "len": 2,
@@ -9979,10 +10276,39 @@
     "args": {}
   },
   "1139": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 7,
     "id": "CentralHeatingCurveAdaptionParameter",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "0",
+          "args": {
+            "scale": 10.0,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "1",
+          "args": {
+            "scale": 10.0,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 3,
+          "id": "Unknown",
+          "args": {}
+        }
+      ]
+    }
   },
   "1165": {
     "codec": "O3EByteVal",
@@ -10353,10 +10679,55 @@
     }
   },
   "1210": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 13,
     "id": "FuelCellStatistical",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Betriebsstunden",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Produktionsstunden",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 2,
+          "id": "Unknown",
+          "args": {}
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CellStarts",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 1,
+          "id": "Unknown",
+          "args": {}
+        }
+      ]
+    }
   },
   "1211": {
     "codec": "O3EComplexType",
@@ -10428,10 +10799,14 @@
     }
   },
   "1214": {
-    "codec": "RawCodec",
+    "codec": "O3EInt16",
     "len": 2,
-    "id": "ElectricalPowerOutput",
-    "args": {}
+    "id": "FuelCellElectricalPowerOutput",
+    "args": {
+      "scale": 10.0,
+      "signed": false,
+      "offset": 0
+    }
   },
   "1215": {
     "codec": "RawCodec",
@@ -19216,7 +19591,7 @@
         {
           "codec": "O3EInt32",
           "len": 4,
-          "id": "Betriebsstunden",
+          "id": "OperatingHours",
           "args": {
             "scale": 1,
             "signed": false,
@@ -19226,7 +19601,7 @@
         {
           "codec": "O3EInt32",
           "len": 4,
-          "id": "Brennerstunden",
+          "id": "BurnerHours",
           "args": {
             "scale": 1,
             "signed": false,
@@ -19236,7 +19611,7 @@
         {
           "codec": "O3EInt32",
           "len": 4,
-          "id": "Brennerstarts",
+          "id": "BurnerStarts",
           "args": {
             "scale": 1,
             "signed": false,
@@ -19247,16 +19622,104 @@
     }
   },
   "1347": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 10,
     "id": "ObjectElectricalEnergyStatus",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "RawCodec",
+          "len": 4,
+          "id": "Unknown",
+          "args": {}
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "EvuPower",
+          "args": {
+            "scale": 1,
+            "signed": true,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 4,
+          "id": "Unknown2",
+          "args": {}
+        }
+      ]
+    }
   },
   "1348": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 12,
     "id": "FuelCellGasConsumption",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Today",
+          "args": {
+            "scale": 10.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Past7Days",
+          "args": {
+            "scale": 10.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentMonth",
+          "args": {
+            "scale": 10.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "PastMonth",
+          "args": {
+            "scale": 10.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentYear",
+          "args": {
+            "scale": 10.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "PastYear",
+          "args": {
+            "scale": 10.0,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1349": {
     "codec": "O3EComplexType",
@@ -20173,10 +20636,73 @@
     }
   },
   "1351": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 24,
     "id": "FeedInEnergy",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Today",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "Week",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "CurrentMonth",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "PastMonth",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "CurrentYear",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt32",
+          "len": 4,
+          "id": "PastYear",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1352": {
     "codec": "O3EComplexType",
@@ -21093,10 +21619,73 @@
     }
   },
   "1354": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 6,
     "id": "ProductionCoverageRate",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "Today",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "Week",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "CurrentMonth",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "PastMonth",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "CurrentYear",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "PastYear",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1355": {
     "codec": "O3EComplexType",
@@ -22013,10 +22602,83 @@
     }
   },
   "1357": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 11,
     "id": "FuelCellOperationTime",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "Today",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "ThisWeek",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "LastWeek",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentMonth",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "LastMonth",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentYear",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "LastYear",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1358": {
     "codec": "O3EComplexType",
@@ -22035,7 +22697,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22045,7 +22707,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22055,7 +22717,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22065,7 +22727,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22075,7 +22737,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22085,7 +22747,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22095,7 +22757,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22105,7 +22767,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22115,7 +22777,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22125,7 +22787,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22135,7 +22797,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22145,7 +22807,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22155,7 +22817,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22165,7 +22827,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22175,7 +22837,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22185,7 +22847,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22195,7 +22857,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22205,7 +22867,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22215,7 +22877,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22225,7 +22887,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22235,7 +22897,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22245,7 +22907,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22255,7 +22917,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22265,7 +22927,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22275,7 +22937,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22285,7 +22947,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22295,7 +22957,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22305,7 +22967,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22315,7 +22977,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22325,7 +22987,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22335,7 +22997,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22354,7 +23016,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22364,7 +23026,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22374,7 +23036,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22384,7 +23046,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22394,7 +23056,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22404,7 +23066,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22414,7 +23076,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22424,7 +23086,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22434,7 +23096,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22444,7 +23106,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22454,7 +23116,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22464,7 +23126,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22474,7 +23136,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22484,7 +23146,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22494,7 +23156,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22504,7 +23166,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22514,7 +23176,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22524,7 +23186,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22534,7 +23196,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22544,7 +23206,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22554,7 +23216,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22564,7 +23226,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22574,7 +23236,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22584,7 +23246,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22594,7 +23256,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22604,7 +23266,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22614,7 +23276,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22624,7 +23286,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22634,7 +23296,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22644,7 +23306,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22654,7 +23316,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22933,10 +23595,83 @@
     }
   },
   "1360": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 11,
     "id": "FuelCellRunTime",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "Today",
+          "args": {
+            "scale": 10,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "ThisWeek",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "LastWeek",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentMonth",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "LastMonth",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentYear",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "LastYear",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1361": {
     "codec": "O3EComplexType",
@@ -22955,7 +23690,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22965,7 +23700,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22975,7 +23710,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22985,7 +23720,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -22995,7 +23730,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23005,7 +23740,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23015,7 +23750,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23025,7 +23760,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23035,7 +23770,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23045,7 +23780,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23055,7 +23790,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23065,7 +23800,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23075,7 +23810,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23085,7 +23820,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23095,7 +23830,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23105,7 +23840,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23115,7 +23850,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23125,7 +23860,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23135,7 +23870,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23145,7 +23880,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23155,7 +23890,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23165,7 +23900,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23175,7 +23910,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23185,7 +23920,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23195,7 +23930,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23205,7 +23940,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23215,7 +23950,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23225,7 +23960,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23235,7 +23970,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23245,7 +23980,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23255,7 +23990,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23274,7 +24009,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23284,7 +24019,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23294,7 +24029,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23304,7 +24039,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23314,7 +24049,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23324,7 +24059,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23334,7 +24069,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23344,7 +24079,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23354,7 +24089,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23364,7 +24099,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23374,7 +24109,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23384,7 +24119,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23394,7 +24129,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23404,7 +24139,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23414,7 +24149,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23424,7 +24159,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23434,7 +24169,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23444,7 +24179,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23454,7 +24189,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23464,7 +24199,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23474,7 +24209,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23484,7 +24219,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23494,7 +24229,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23504,7 +24239,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23514,7 +24249,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23524,7 +24259,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23534,7 +24269,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23544,7 +24279,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23554,7 +24289,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23564,7 +24299,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23574,7 +24309,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -23853,10 +24588,12 @@
     }
   },
   "1363": {
-    "codec": "RawCodec",
+    "codec": "O3EEnum",
     "len": 1,
     "id": "FuelCellTargetOperationMode",
-    "args": {}
+    "args": {
+      "listStr": "FuelCellOperationModes"
+    }
   },
   "1364": {
     "codec": "O3EByteVal",
@@ -23867,16 +24604,83 @@
     }
   },
   "1367": {
-    "codec": "RawCodec",
+    "codec": "O3EInt16",
     "len": 2,
     "id": "FuelCellThermalPower",
-    "args": {}
+    "args": {
+      "scale": 1,
+      "signed": false,
+      "offset": 0
+    }
   },
   "1371": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 6,
     "id": "DemandCoverageRate",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "Today",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "Week",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "CurrentMonth",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "PastMonth",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "CurrentYear",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "PastYear",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1372": {
     "codec": "O3EComplexType",
@@ -24793,10 +25597,83 @@
     }
   },
   "1383": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 11,
     "id": "FuelCellBreakdownRate",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "Today",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "ThisWeek",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "LastWeek",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentMonth",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "LastMonth",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CurrentYear",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "LastYear",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1384": {
     "codec": "O3EComplexType",
@@ -24815,7 +25692,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24825,7 +25702,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24835,7 +25712,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24845,7 +25722,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24855,7 +25732,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24865,7 +25742,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24875,7 +25752,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24885,7 +25762,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24895,7 +25772,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24905,7 +25782,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24915,7 +25792,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24925,7 +25802,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24935,7 +25812,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24945,7 +25822,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24955,7 +25832,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24965,7 +25842,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24975,7 +25852,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24985,7 +25862,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -24995,7 +25872,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25005,7 +25882,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25015,7 +25892,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25025,7 +25902,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25035,7 +25912,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25045,7 +25922,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25055,7 +25932,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25065,7 +25942,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25075,7 +25952,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25085,7 +25962,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25095,7 +25972,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25105,7 +25982,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25115,7 +25992,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25134,7 +26011,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25144,7 +26021,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25154,7 +26031,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25164,7 +26041,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25174,7 +26051,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25184,7 +26061,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25194,7 +26071,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25204,7 +26081,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25214,7 +26091,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25224,7 +26101,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25234,7 +26111,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25244,7 +26121,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25254,7 +26131,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25264,7 +26141,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25274,7 +26151,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25284,7 +26161,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25294,7 +26171,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25304,7 +26181,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25314,7 +26191,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25324,7 +26201,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25334,7 +26211,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25344,7 +26221,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25354,7 +26231,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25364,7 +26241,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25374,7 +26251,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25384,7 +26261,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25394,7 +26271,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25404,7 +26281,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25414,7 +26291,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25424,7 +26301,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25434,7 +26311,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25729,7 +26606,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25739,7 +26616,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25749,7 +26626,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25759,7 +26636,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25769,7 +26646,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25779,7 +26656,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25789,7 +26666,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25799,7 +26676,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25809,7 +26686,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25819,7 +26696,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25829,7 +26706,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25839,7 +26716,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25849,7 +26726,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25859,7 +26736,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25869,7 +26746,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25879,7 +26756,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25889,7 +26766,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25899,7 +26776,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25909,7 +26786,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25919,7 +26796,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25929,7 +26806,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25939,7 +26816,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25949,7 +26826,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25959,7 +26836,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25969,7 +26846,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25979,7 +26856,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25989,7 +26866,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -25999,7 +26876,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26009,7 +26886,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26019,7 +26896,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26029,7 +26906,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26048,7 +26925,7 @@
                 "len": 2,
                 "id": "01",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26058,7 +26935,7 @@
                 "len": 2,
                 "id": "02",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26068,7 +26945,7 @@
                 "len": 2,
                 "id": "03",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26078,7 +26955,7 @@
                 "len": 2,
                 "id": "04",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26088,7 +26965,7 @@
                 "len": 2,
                 "id": "05",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26098,7 +26975,7 @@
                 "len": 2,
                 "id": "06",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26108,7 +26985,7 @@
                 "len": 2,
                 "id": "07",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26118,7 +26995,7 @@
                 "len": 2,
                 "id": "08",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26128,7 +27005,7 @@
                 "len": 2,
                 "id": "09",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26138,7 +27015,7 @@
                 "len": 2,
                 "id": "10",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26148,7 +27025,7 @@
                 "len": 2,
                 "id": "11",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26158,7 +27035,7 @@
                 "len": 2,
                 "id": "12",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26168,7 +27045,7 @@
                 "len": 2,
                 "id": "13",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26178,7 +27055,7 @@
                 "len": 2,
                 "id": "14",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26188,7 +27065,7 @@
                 "len": 2,
                 "id": "15",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26198,7 +27075,7 @@
                 "len": 2,
                 "id": "16",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26208,7 +27085,7 @@
                 "len": 2,
                 "id": "17",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26218,7 +27095,7 @@
                 "len": 2,
                 "id": "18",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26228,7 +27105,7 @@
                 "len": 2,
                 "id": "19",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26238,7 +27115,7 @@
                 "len": 2,
                 "id": "20",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26248,7 +27125,7 @@
                 "len": 2,
                 "id": "21",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26258,7 +27135,7 @@
                 "len": 2,
                 "id": "22",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26268,7 +27145,7 @@
                 "len": 2,
                 "id": "23",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26278,7 +27155,7 @@
                 "len": 2,
                 "id": "24",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26288,7 +27165,7 @@
                 "len": 2,
                 "id": "25",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26298,7 +27175,7 @@
                 "len": 2,
                 "id": "26",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26308,7 +27185,7 @@
                 "len": 2,
                 "id": "27",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26318,7 +27195,7 @@
                 "len": 2,
                 "id": "28",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26328,7 +27205,7 @@
                 "len": 2,
                 "id": "29",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26338,7 +27215,7 @@
                 "len": 2,
                 "id": "30",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -26348,7 +27225,7 @@
                 "len": 2,
                 "id": "31",
                 "args": {
-                  "scale": 10.0,
+                  "scale": 1,
                   "signed": false,
                   "offset": 0
                 }
@@ -27660,7 +28537,7 @@
     }
   },
   "1411": {
-    "codec": "O3EByteVal",
+    "codec": "O3EBool",
     "len": 1,
     "id": "ResetServiceInterval",
     "args": {
@@ -27674,19 +28551,19 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
@@ -27699,19 +28576,19 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
@@ -27724,19 +28601,19 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
@@ -27749,19 +28626,19 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
@@ -27774,19 +28651,19 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
@@ -27799,19 +28676,19 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
@@ -27824,19 +28701,19 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
@@ -27849,35 +28726,113 @@
     "args": {
       "subTypes": [
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "Mode",
           "args": {
-            "offset": 0
+            "listStr": "OpModes"
           }
         },
         {
-          "codec": "O3EByteVal",
+          "codec": "O3EEnum",
           "len": 1,
           "id": "State",
           "args": {
-            "offset": 0
+            "listStr": "OpStates"
           }
         }
       ]
     }
   },
   "1431": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 8,
     "id": "CarbonEmissionSettings",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CO2FactorGasPerKWh",
+          "args": {
+            "scale": 0.1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "Unknown",
+          "args": {
+            "scale": 0.1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CO2FactorPowerDrawnPerKWh",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 2,
+          "id": "CO2FactorPowerExportedToGridPerKWh",
+          "args": {
+            "scale": 1,
+            "signed": false,
+            "offset": 0
+          }
+        }
+      ]
+    }
   },
   "1432": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 4,
     "id": "CentralHeatingPumpPerformance",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "RawCodec",
+          "len": 1,
+          "id": "Unknown",
+          "args": {}
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "ResidualHeadControlOfPrimaryCircuitPump",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "OperatingModeOfPrimaryCircuitPump",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 1,
+          "id": "Unknown",
+          "args": {}
+        }
+      ]
+    }
   },
   "1434": {
     "codec": "RawCodec",
@@ -28159,10 +29114,14 @@
     "args": {}
   },
   "1503": {
-    "codec": "RawCodec",
+    "codec": "O3EInt8",
     "len": 1,
     "id": "MinimumLoadPercent",
-    "args": {}
+    "args": {
+      "scale": 1.0,
+      "signed": false,
+      "offset": 0
+    }
   },
   "1504": {
     "codec": "O3EEnum",
@@ -28416,10 +29375,14 @@
     "args": {}
   },
   "1585": {
-    "codec": "RawCodec",
+    "codec": "O3EInt16",
     "len": 2,
     "id": "IncreasedReturnTemperatureSetpoint",
-    "args": {}
+    "args": {
+      "scale": 10.0,
+      "signed": false,
+      "offset": 0
+    }
   },
   "1587": {
     "codec": "RawCodec",
@@ -28470,7 +29433,7 @@
     "args": {}
   },
   "1595": {
-    "codec": "RawCodec",
+    "codec": "O3ESoftVers",
     "len": 8,
     "id": "ParameterIdentificationVersionFactory",
     "args": {}
@@ -28617,10 +29580,45 @@
     }
   },
   "1606": {
-    "codec": "RawCodec",
+    "codec": "O3EComplexType",
     "len": 8,
     "id": "IntervalStrategyProperties",
-    "args": {}
+    "args": {
+      "subTypes": [
+        {
+          "codec": "O3EInt8",
+          "len": 1,
+          "id": "BurnerMinimumPause",
+          "args": {
+            "scale": 1.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 5,
+          "id": "Unknown",
+          "args": {}
+        },
+        {
+          "codec": "O3EInt16",
+          "len": 1,
+          "id": "IntegralschwellwertZurAbschaltungDesBrenners",
+          "args": {
+            "scale": 10.0,
+            "signed": false,
+            "offset": 0
+          }
+        },
+        {
+          "codec": "RawCodec",
+          "len": 1,
+          "id": "Unknown",
+          "args": {}
+        }
+      ]
+    }
   },
   "1607": {
     "codec": "O3EByteVal",
@@ -40570,6 +41568,5 @@
     "len": 199,
     "id": "ExtendedEventLoggingHistory",
     "args": {}
-  },
-  "Version": "20240214"
+  }
 }
