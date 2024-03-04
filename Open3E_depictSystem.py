@@ -52,14 +52,14 @@ can = "can0"
 # scan methods ~~~~~~~~~~~~~~~~~~~~~~
 def scan_cobs(startcob:int, lastcob:int) -> tuple:  # list of responding cobs tuples (cobid,devprop)
     lstfounds = []
-    lstskips = []  # skip respond cobs    
+    lstskips = [1671]  # skip respond cobs    
     chkdid = 256
 
     print(f"scan COB-IDs {hex(startcob)} to {hex(lastcob)} ...") 
     for tx in range(startcob, lastcob + 1):
         if(tx in lstskips):
             continue
-
+        print(tx)
         rx = tx + 0x10
         if(args.doip != None):
             conn = DoIPClientUDSConnector(DoIPClient(args.doip, tx))
